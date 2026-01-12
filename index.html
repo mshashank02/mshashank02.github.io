@@ -103,6 +103,18 @@
 
     .item-body a.title:hover { text-decoration: underline; }
 
+    .publication-content {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .publication-text {
+      flex: 1 1 240px;
+      min-width: 240px;
+    }
+
     .meta {
       font-size: 0.9rem;
       color: var(--muted);
@@ -123,8 +135,8 @@
 
     /* Video embedding */
     .video-wrapper {
-      margin-top: 8px;
-      max-width: 480px;
+      flex: 0 0 280px;
+      max-width: 280px;
       border-radius: 6px;
       overflow: hidden;
       border: 1px solid var(--border);
@@ -134,7 +146,7 @@
     .video-wrapper video {
       display: block;
       width: 100%;
-      height: 270px; /* adjust if you want */
+      height: 158px; /* 16:9 for 280px width */
     }
   </style>
 </head>
@@ -175,29 +187,33 @@
         <div class="item">
             <img src="assets/pub1.png" alt="Paper thumbnail" class="thumb">
             <div class="item-body">
-            <a href="https://arxiv.org/pdf/2310.02726" class="title" target="_blank">
-                Optimal Collaborative Transportation for Under-Capacitated Vehicle Routing
-                Problems using Aerial Drone Swarms
-            </a>
-            <div class="meta">
-                Shashank Mahesh, Akash Kopparam Sreedhara, Deepesh Padala, Kai Cui, Mengguang Li and Heinz Koeppl<br>
-                <em>ICRA, 2024</em>
-            </div>
+            <div class="publication-content">
+              <div class="publication-text">
+                <a href="https://arxiv.org/pdf/2310.02726" class="title" target="_blank">
+                    Optimal Collaborative Transportation for Under-Capacitated Vehicle Routing
+                    Problems using Aerial Drone Swarms
+                </a>
+                <div class="meta">
+                    Shashank Mahesh, Akash Kopparam Sreedhara, Deepesh Padala, Kai Cui, Mengguang Li and Heinz Koeppl<br>
+                    <em>ICRA, 2024</em>
+                </div>
 
-            <div class="small-links">
-                <a href="https://arxiv.org/pdf/2310.02726" target="_blank">PDF</a>
-                <a href="https://www.youtube.com/watch?v=SAPVUDS24mA" target="_blank">Video</a>
-            </div>
+                <div class="small-links">
+                    <a href="https://arxiv.org/pdf/2310.02726" target="_blank">PDF</a>
+                    <a href="https://www.youtube.com/watch?v=SAPVUDS24mA" target="_blank">Video</a>
+                </div>
+              </div>
 
-            <!-- Embedded video -->
-            <div class="video-wrapper">
-                <iframe
-                src="https://www.youtube.com/watch?v=SAPVUDS24mA"
-                title="Publication video"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-                </iframe>
+              <!-- Embedded video -->
+              <div class="video-wrapper">
+                  <iframe
+                  src="https://www.youtube.com/embed/SAPVUDS24mA"
+                  title="Publication video"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                  </iframe>
+              </div>
             </div>
             </div>
         </div>
