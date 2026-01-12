@@ -103,6 +103,14 @@
 
     .item-body a.title:hover { text-decoration: underline; }
 
+    .publication-content {
+      display: block;
+    }
+
+    .publication-text {
+      margin-bottom: 12px;
+    }
+
     .meta {
       font-size: 0.9rem;
       color: var(--muted);
@@ -123,8 +131,9 @@
 
     /* Video embedding */
     .video-wrapper {
-      margin-top: 8px;
-      max-width: 480px;
+      width: 100%;
+      max-width: 560px;
+      aspect-ratio: 16 / 9;
       border-radius: 6px;
       overflow: hidden;
       border: 1px solid var(--border);
@@ -134,7 +143,39 @@
     .video-wrapper video {
       display: block;
       width: 100%;
-      height: 270px; /* adjust if you want */
+      height: 100%;
+    }
+
+    .experience-item {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .experience-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      justify-content: space-between;
+    }
+
+    .experience-title {
+      font-weight: 600;
+    }
+
+    .experience-dates {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .experience-media {
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      background: #fff;
+      padding: 12px;
+      color: var(--muted);
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -175,29 +216,33 @@
         <div class="item">
             <img src="assets/pub1.png" alt="Paper thumbnail" class="thumb">
             <div class="item-body">
-            <a href="https://arxiv.org/pdf/2310.02726" class="title" target="_blank">
-                Optimal Collaborative Transportation for Under-Capacitated Vehicle Routing
-                Problems using Aerial Drone Swarms
-            </a>
-            <div class="meta">
-                Shashank Mahesh, Akash Kopparam Sreedhara, Deepesh Padala, Kai Cui, Mengguang Li and Heinz Koeppl<br>
-                <em>ICRA, 2024</em>
-            </div>
+            <div class="publication-content">
+              <div class="publication-text">
+                <a href="https://arxiv.org/pdf/2310.02726" class="title" target="_blank">
+                    Optimal Collaborative Transportation for Under-Capacitated Vehicle Routing
+                    Problems using Aerial Drone Swarms
+                </a>
+                <div class="meta">
+                    Shashank Mahesh, Akash Kopparam Sreedhara, Deepesh Padala, Kai Cui, Mengguang Li and Heinz Koeppl<br>
+                    <em>ICRA, 2024</em>
+                </div>
 
-            <div class="small-links">
-                <a href="https://arxiv.org/pdf/2310.02726" target="_blank">PDF</a>
-                <a href="https://www.youtube.com/watch?v=SAPVUDS24mA" target="_blank">Video</a>
-            </div>
+                <div class="small-links">
+                    <a href="https://arxiv.org/pdf/2310.02726" target="_blank">PDF</a>
+                    <a href="https://www.youtube.com/watch?v=SAPVUDS24mA" target="_blank">Video</a>
+                </div>
+              </div>
 
-            <!-- Embedded video -->
-            <div class="video-wrapper">
-                <iframe
-                src="https://www.youtube.com/watch?v=SAPVUDS24mA"
-                title="Publication video"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-                </iframe>
+              <!-- Embedded video -->
+              <div class="video-wrapper">
+                  <iframe
+                  src="https://www.youtube.com/embed/SAPVUDS24mA"
+                  title="Publication video"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                  </iframe>
+              </div>
             </div>
             </div>
         </div>
@@ -205,10 +250,100 @@
       </ol>
     </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
+    <section id="work-experience">
+      <h2>Work Experience</h2>
       <ol>
-        <!-- Example project with video (we'll fill this in next) -->
+        <li class="experience-item">
+          <div class="experience-header">
+            <div class="experience-title">UC Davis Eco Car — Connected Autonomous Vehicles Graduate Lead</div>
+            <div class="experience-dates">Sep 2025 – Present</div>
+          </div>
+          <ul>
+            <li>Designing MPC-based Cooperative Adaptive Cruise Control (CACC) to improve platoon string stability.</li>
+            <li>Building a rapid-prototyping pipeline with Speedgoat (MATLAB/Simulink) and RTMaps for real-time deployment and logging.</li>
+            <li>Developing sensor fusion to combine V2V radio telemetry with stock onboard sensors (camera, radar, IMU) for robust perception/control.</li>
+            <li>Managing a cross-functional team of 12 students building ADAS software for the Cadillac Lyriq.</li>
+          </ul>
+          <div class="experience-media">Media placeholder (add image or video)</div>
+        </li>
+
+        <li class="experience-item">
+          <div class="experience-header">
+            <div class="experience-title">UC Davis Eco Car — Connected Autonomous Vehicles Associate Graduate Lead</div>
+            <div class="experience-dates">Oct 2024 – Sep 2025</div>
+          </div>
+          <ul>
+            <li>Implemented a coupled ACC-LCC controller (MPC longitudinal + lateral) and validated on HIL bench and vehicle platform.</li>
+            <li>Developed Model Predictive Control for ACC and lane centering; converted high-level MPC steering-angle commands to steering torque commands.</li>
+          </ul>
+          <div class="experience-media">Media placeholder (add image or video)</div>
+        </li>
+
+        <li class="experience-item">
+          <div class="experience-header">
+            <div class="experience-title">Laboratory for AI, Robotics and Automation — Graduate Researcher (UC Davis)</div>
+            <div class="experience-dates">Oct 2024 – Present</div>
+          </div>
+          <ul>
+            <li>Built a MuJoCo-based RL stack for dexterous five-finger manipulation with force feedback.</li>
+            <li>Benchmarked PPO, SAC, TD3, and TQC; adopted TQC for higher success-rate AUC and training stability.</li>
+            <li>Formulated GP-BO to co-optimize tactile sensor count and density; used a GP surrogate to propose next layout and sensor budget.</li>
+            <li>Evaluated layouts across varied object size, aspect ratio, surface roughness, and deformability; automated training loop and metric logging.</li>
+          </ul>
+          <div class="experience-media">Media placeholder (add image or video)</div>
+        </li>
+
+        <li class="experience-item">
+          <div class="experience-header">
+            <div class="experience-title">Formal Control and Autonomous Systems Lab — Research Intern (IISc Bangalore)</div>
+            <div class="experience-dates">Jan 2024 – Aug 2024</div>
+          </div>
+          <ul>
+            <li>Developed an autonomous car for F1Tenth Autonomous Racing Competition using the ROS2 framework.</li>
+            <li>Worked on Control Barrier Function to enable autonomous overtaking.</li>
+            <li>Modeled vehicle dynamics using Motion Capture Data.</li>
+          </ul>
+          <div class="experience-media">Media placeholder (add image or video)</div>
+        </li>
+
+        <li class="experience-item">
+          <div class="experience-header">
+            <div class="experience-title">Autonomous Research Center — Undergraduate Research Lead (VIT Vellore)</div>
+            <div class="experience-dates">Sep 2022 – Dec 2023</div>
+          </div>
+          <ul>
+            <li>Led a team of ten engineers to create a Level 3 Autonomous vehicle.</li>
+            <li>Implemented Explicit Model Predictive Control on Electronic Power Steering with steering angle error ≤ 0.2°.</li>
+            <li>Implemented drive-by-wire to control steering, traction motor, and brakes using Hardware in Loop System.</li>
+            <li>Data acquisition and processing for depth camera, LiDAR, IMU, and encoders; ROS2 integration.</li>
+          </ul>
+          <div class="experience-media">Media placeholder (add image or video)</div>
+        </li>
+
+        <li class="experience-item">
+          <div class="experience-header">
+            <div class="experience-title">TU Darmstadt Self Organising Systems Drone Lab — Research Intern (Darmstadt)</div>
+            <div class="experience-dates">Jun 2023 – Sep 2023</div>
+          </div>
+          <ul>
+            <li>Developed and deployed optimization algorithm and hardware for optimal collaborative transportation for under-capacitated vehicle routing problems using aerial drone swarms.</li>
+            <li>Created a robust drone delivery platform using motion planning (informed RRT*) and control of drone swarms, drone scheduling, and waypoint navigation; route optimization using simulated annealing and genetic algorithm.</li>
+          </ul>
+          <div class="experience-media">Media placeholder (add image or video)</div>
+        </li>
+
+        <li class="experience-item">
+          <div class="experience-header">
+            <div class="experience-title">Team AutoZ — Team Lead (VIT Vellore)</div>
+            <div class="experience-dates">Sep 2022 – Oct 2023</div>
+          </div>
+          <ul>
+            <li>Led a team of sixteen engineers to create an autonomous ground vehicle and competed in IGVC 2023.</li>
+            <li>Implemented Kalman Filters for sensor fusion and localization; pure pursuit for skid-steer autonomous bot.</li>
+            <li>Developed a first-generation autonomous bot capable of lane following, mapping, and GPS waypoint navigation.</li>
+          </ul>
+          <div class="experience-media">Media placeholder (add image or video)</div>
+        </li>
       </ol>
     </section>
   </div>
